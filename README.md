@@ -184,4 +184,4 @@ Convolution layer 3
 
 ![alt text][image10]
 
-
+I applied dropout for convolution layers, believing that it still helps with regularization although the number of neurons is not large compared to fully connected layers. From the visualization, it can be seen that for validation data the End of speed limits / End of no passing signs play a large portion because from Convolution layer 1 we see a lot of diagonal line features. For convolution 2 and 3, the sizes are small so we can't grasp a meaningful sense out of the images. One way to improve is keeping the outputs of these layers at high resolution by applying SAME padding, but note that max pooling still reduces the feature map size.
