@@ -65,24 +65,26 @@ Also, I plot out an example for each class, with their labels obtained from the 
 
 ####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-I decided to convert the images to grayscale because the traffic design does not depend on color. Thus, by using grayscale we can reduce the model size a little. As a first step, I use the ideas in the paper Traffic Sign Recognition with Multi-Scale Convolutional Networks by Pierre Sermanet and Yann LeCun. It is about a transformation based on global and then local contrast normalization, so I implemented using skimage and scipy.ndimage. Furthermore, I compare transformation in YUV and RGB space and realize RGB gives a better edge performance than YUV discussed in the paper, so I choose tranformation in RGB. After that, 
+1a. I decided to convert the images to grayscale because the traffic design does not depend on color. Thus, by using grayscale we can reduce the model size a little. As a first step, I use the ideas in the paper Traffic Sign Recognition with Multi-Scale Convolutional Networks by Pierre Sermanet and Yann LeCun. It is about a transformation based on global and then local contrast normalization, so I implemented using skimage and scipy.ndimage. Furthermore, I compare transformation in YUV and RGB space and realize RGB gives a better edge performance than YUV discussed in the paper, so I choose tranformation in RGB. After that, grayscale conversion follows with the weight [0.2126, 0.7152, 0.0722]. 
 
-Here is an example of a traffic sign image before and after grayscaling.
-
-![alt text][image3]
-
-As a last step, I normalized the image data because ...
-
-I decided to generate additional data because ... 
-
-To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
+Here is an example of a traffic sign image before and after transforming and grayscaling.
 
 ![alt text][image3]
 
-The difference between the original data set and the augmented data set is the following ... 
+As a last step, I normalized the image data to range [-1, 1] because it helps with the weight training of our neural network.
 
+1b. I also generated additional data in order to create more realistic data to help the model recognizes the traffic signs under different conditions.
+
+To add more data to the the data set, I used the following techniques:
+* Rotatation [-15, 15] degrees
+* Translation [-4, 4] pixels in both x, y dimensions
+* Zoom [80%, 120%]
+
+This is done in a random augmentation for each grayscale image. Furthermore, depending on the population of each class of traffic signs, I augment it proportionally. 
+
+The augmented data set has a more balanced distribution
+
+![alt text][image4]
 
 ####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
