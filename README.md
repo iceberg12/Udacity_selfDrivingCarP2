@@ -135,7 +135,7 @@ Here are five German traffic signs that I found on the web:
 
 ![alt text][image5]
 
-The first image might be difficult to classify because ...
+The third and fourth images might cause some difficulty due to their translation, size and quality. The fifth image has a similiar shape with Beware of ice/snow (seen in the fourth row from bottom up in the images of Data Set Summary & Exploration section), which can be potentially fixed with class balancing or create more training data.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
